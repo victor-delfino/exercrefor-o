@@ -16,8 +16,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author hugod
  */
-@WebServlet(name = "meServlet", urlPatterns = {"/me.html"})
-public class meServlet extends HttpServlet {
+@WebServlet(name = "MeServlet", urlPatterns = {"/me.html"})
+public class MeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

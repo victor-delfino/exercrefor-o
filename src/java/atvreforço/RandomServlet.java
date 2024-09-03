@@ -11,6 +11,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Servlet que gera números aleatórios.
@@ -43,13 +45,22 @@ public class RandomServlet extends HttpServlet {
             out.println("<table border='1'>");
             out.println("<tr><th>Index</th><th>Number</th></tr>");
 
-            for (int i = 1; i <= 6; i++) {
+            Set<Integer> uniqueNumbers = new HashSet<>();
+            int i = 1;
+            
+            while (uniqueNumbers.size() < 6) {
                 int r = (int) (1 + Math.random() * 60);
+                
+                if(!uniqueNumbers.contains(r)) {
+                    uniqueNumbers.add(r);
                 out.println("<tr>");
                 out.println("<td>" + i + "</td>");
                 out.println("<td>" + r + "</td>");
                 out.println("</tr>");
+                i++;
             }
+          }
+            
 
             out.println("</table>");
             out.println("</body>");
